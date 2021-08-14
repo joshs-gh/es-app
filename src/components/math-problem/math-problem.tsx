@@ -6,7 +6,7 @@ import { Component, Prop, h, State } from '@stencil/core';
   shadow: true,
 })
 export class MathProblem {
-  @Prop() range: number = 10;
+  @Prop() numRange: number = 10;
   @State() x: number;
   @State() y: number;
   @State() operator: string;
@@ -16,8 +16,8 @@ export class MathProblem {
   private response: HTMLInputElement;
 
   connectedCallback() {
-    this.x = Math.floor(Math.random() * (this.range + 1));
-    this.y = Math.floor(Math.random() * (this.range + 1));
+    this.x = Math.floor(Math.random() * (this.numRange + 1));
+    this.y = Math.floor(Math.random() * (this.numRange + 1));
     Math.random() < 0.5 ? (this.operator = '+') : (this.operator = '-');
     this.operator === '+' ? (this.answer = this.x + this.y) : (this.answer = this.x - this.y);
     console.log('Answer: ' + this.answer);
@@ -50,7 +50,7 @@ export class MathProblem {
 
   render() {
     return (
-      <div>
+      <div class="pos">
         <div>
           {this.getText()}
           <input ref={e => (this.response = e as HTMLInputElement)} onKeyDown={this.handleKeydown}></input>

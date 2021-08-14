@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, Method, h, Watch } from '@stencil/core';
 
 @Component({
   tag: 'growing-flower',
@@ -8,6 +8,7 @@ import { Component, Prop, h } from '@stencil/core';
 export class GrowingFlower {
   @Prop() left: string;
   @Prop() top: string;
+  @Prop() grow: string;
   private flower: HTMLElement;
   private div: HTMLElement;
 
@@ -16,20 +17,16 @@ export class GrowingFlower {
     this.div.style.top = this.top;
   }
 
-  private g1 = e => {
-    this.flower.classList.add('grow1');
-  };
-
-  private g2 = e => {
-    this.flower.classList.add('grow2');
-  };
+  @Watch('grow')
+  growit() {
+    this.grow === 'one' && this.flower.classList.add('grow1');
+    this.grow === 'two' && this.flower.classList.add('grow2');
+  }
 
   render() {
     return (
       <div style={{ position: 'absolute' }} ref={e => (this.div = e as HTMLElement)}>
         <img src="https://www.pinclipart.com/picdir/big/93-934721_smiley-happy-daisy-flower-clipart.png" ref={e => (this.flower = e as HTMLElement)}></img>
-        <button onClick={this.g1}>1</button>
-        <button onClick={this.g2}>2</button>
       </div>
     );
   }

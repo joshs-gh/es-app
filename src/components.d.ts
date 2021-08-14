@@ -6,15 +6,24 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface EsGame {
+    }
     interface GrowingFlower {
+        "grow": string;
         "left": string;
         "top": string;
     }
     interface MathProblem {
-        "range": number;
+        "numRange": number;
     }
 }
 declare global {
+    interface HTMLEsGameElement extends Components.EsGame, HTMLStencilElement {
+    }
+    var HTMLEsGameElement: {
+        prototype: HTMLEsGameElement;
+        new (): HTMLEsGameElement;
+    };
     interface HTMLGrowingFlowerElement extends Components.GrowingFlower, HTMLStencilElement {
     }
     var HTMLGrowingFlowerElement: {
@@ -28,19 +37,24 @@ declare global {
         new (): HTMLMathProblemElement;
     };
     interface HTMLElementTagNameMap {
+        "es-game": HTMLEsGameElement;
         "growing-flower": HTMLGrowingFlowerElement;
         "math-problem": HTMLMathProblemElement;
     }
 }
 declare namespace LocalJSX {
+    interface EsGame {
+    }
     interface GrowingFlower {
+        "grow"?: string;
         "left"?: string;
         "top"?: string;
     }
     interface MathProblem {
-        "range"?: number;
+        "numRange"?: number;
     }
     interface IntrinsicElements {
+        "es-game": EsGame;
         "growing-flower": GrowingFlower;
         "math-problem": MathProblem;
     }
@@ -49,6 +63,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "es-game": LocalJSX.EsGame & JSXBase.HTMLAttributes<HTMLEsGameElement>;
             "growing-flower": LocalJSX.GrowingFlower & JSXBase.HTMLAttributes<HTMLGrowingFlowerElement>;
             "math-problem": LocalJSX.MathProblem & JSXBase.HTMLAttributes<HTMLMathProblemElement>;
         }

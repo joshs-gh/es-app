@@ -9,6 +9,12 @@ div {
   display: flex;
   align-items: center;
 }
+.pos {
+  position: absolute;
+  top: 50px;
+  left: 600px;
+}
+
 input {
   width: 40px;
   padding: 2px;
