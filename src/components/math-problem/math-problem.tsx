@@ -1,4 +1,4 @@
-import { Component, Prop, h, State } from '@stencil/core';
+import { Component, Prop, h, State, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'math-problem',
@@ -14,6 +14,8 @@ export class MathProblem {
   @State() gotit: string = '';
 
   private response: HTMLInputElement;
+
+  @Event() gotItRight: EventEmitter<String>;
 
   connectedCallback() {
     this.x = Math.floor(Math.random() * (this.numRange + 1));
@@ -39,7 +41,12 @@ export class MathProblem {
       e.target.classList.remove('animate');
     }, 700);
 
-    parseInt(this.response.value) === this.answer ? (this.gotit = 'yup') : (this.gotit = 'nope');
+    if (parseInt(this.response.value) === this.answer) {
+      this.gotit = 'yup';
+      this.gotItRight.emit('Yup!');
+    } else {
+      this.gotit = 'nope';
+    }
     setTimeout(() => {
       this.gotit === 'yup' && this.connectedCallback();
       this.gotit = '';

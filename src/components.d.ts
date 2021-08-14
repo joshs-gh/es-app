@@ -52,6 +52,7 @@ declare namespace LocalJSX {
     }
     interface MathProblem {
         "numRange"?: number;
+        "onGotItRight"?: (event: CustomEvent<String>) => void;
     }
     interface IntrinsicElements {
         "es-game": EsGame;
