@@ -14,6 +14,7 @@ export class EsGame {
     const fl1 = document.querySelector('#f1') as any;
     const fl2 = document.querySelector('#f2') as any;
     const fl3 = document.querySelector('#f3') as any;
+    const mp = document.querySelector('math-problem') as any;
 
     switch (this.counter) {
       case 1:
@@ -33,6 +34,7 @@ export class EsGame {
         break;
       case 6:
         fl3.grow = 'two';
+        mp.won = true;
         break;
       default:
         console.log(`ERROR ${event.detail}`);

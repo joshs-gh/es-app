@@ -15,6 +15,7 @@ export namespace Components {
     }
     interface MathProblem {
         "numRange": number;
+        "won": boolean;
     }
 }
 declare global {
@@ -53,6 +54,7 @@ declare namespace LocalJSX {
     interface MathProblem {
         "numRange"?: number;
         "onGotItRight"?: (event: CustomEvent<String>) => void;
+        "won"?: boolean;
     }
     interface IntrinsicElements {
         "es-game": EsGame;

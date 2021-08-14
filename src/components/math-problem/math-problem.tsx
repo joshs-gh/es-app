@@ -7,6 +7,7 @@ import { Component, Prop, h, State, Event, EventEmitter } from '@stencil/core';
 })
 export class MathProblem {
   @Prop() numRange: number = 10;
+  @Prop() won: boolean = false;
   @State() x: number;
   @State() y: number;
   @State() operator: string;
@@ -57,17 +58,23 @@ export class MathProblem {
   render() {
     return (
       <div class="pos">
-        <div>
-          {this.getText()}
-          <input ref={e => (this.response = e as HTMLInputElement)} onKeyDown={this.handleKeydown}></input>
-          <button class="bubbly-button" onClick={this.handleClick}>
-            Go
-          </button>
-        </div>
-        <div>
-          {this.gotit === 'yup' && <div style={{ color: 'green' }}>You got it!</div>}
-          {this.gotit === 'nope' && <div style={{ color: 'red' }}>Sorry try again!</div>}
-        </div>
+        {this.won ? (
+          <div class="won">You won!</div>
+        ) : (
+          <div>
+            <div>
+              {this.getText()}
+              <input ref={e => (this.response = e as HTMLInputElement)} onKeyDown={this.handleKeydown}></input>
+              <button class="bubbly-button" onClick={this.handleClick}>
+                Go
+              </button>
+            </div>
+            <div>
+              {this.gotit === 'yup' && <div style={{ color: 'green' }}>You got it!</div>}
+              {this.gotit === 'nope' && <div style={{ color: 'red' }}>Sorry try again!</div>}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
