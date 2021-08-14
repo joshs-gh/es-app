@@ -35,7 +35,7 @@ export class EsGame {
         fl3.grow = 'two';
         break;
       default:
-        console.log(`ERROR`);
+        console.log(`ERROR ${event.detail}`);
     }
   }
 

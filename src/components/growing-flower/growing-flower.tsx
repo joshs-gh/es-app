@@ -1,4 +1,4 @@
-import { Component, Prop, Method, h, Watch } from '@stencil/core';
+import { Component, Prop, h, Watch } from '@stencil/core';
 
 @Component({
   tag: 'growing-flower',
