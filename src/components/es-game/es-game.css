@@ -4,4 +4,5 @@
 .bg {
   height: 1000px;
   position: relative;
+  z-index: -5;
 }
