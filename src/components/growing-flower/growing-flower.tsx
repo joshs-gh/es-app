@@ -25,7 +25,7 @@ export class GrowingFlower {
 
   render() {
     return (
-      <div style={{ position: 'absolute' }} ref={e => (this.div = e as HTMLElement)}>
+      <div class="flower" ref={e => (this.div = e as HTMLElement)}>
         <img src="https://www.pinclipart.com/picdir/big/93-934721_smiley-happy-daisy-flower-clipart.png" ref={e => (this.flower = e as HTMLElement)}></img>
       </div>
     );

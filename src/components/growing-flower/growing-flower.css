@@ -1,7 +1,7 @@
 :host {
   display: block;
 }
-div {
+div.flower {
   position: absolute;
   display: flex;
   align-items: center;

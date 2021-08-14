@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+.can {
+  position: absolute;
+  left: -100px;
+}
+img {
+  height: 100px;
+}
+.f1 {
+  --f-left: 450px;
+  animation: water 3s forwards;
+}
+.f2 {
+  --f-left: 750px;
+  animation: water 3s forwards;
+}
+.f3 {
+  --f-left: 1050px;
+  animation: water 3s forwards;
+}
+@keyframes water {
+  0% {
+    left: -100;
+  }
+  5% {
+    left: var(--f-left);
+  }
+  95% {
+    left: var(--f-left);
+  }
+  100% {
+    left: -100;
+  }
+}
