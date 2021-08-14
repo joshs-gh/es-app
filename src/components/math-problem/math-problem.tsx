@@ -32,20 +32,21 @@ export class MathProblem {
   };
 
   private handleClick = e => {
-    e.preventDefault;
+    console.log(e);
     e.target.classList.remove('animate');
+    void e.target.offsetWidth;
     e.target.classList.add('animate');
     setTimeout(function () {
       e.target.classList.remove('animate');
-    }, 1000);
+    }, 700);
 
     parseInt(this.response.value) === this.answer ? (this.gotit = 'yup') : (this.gotit = 'nope');
     setTimeout(() => {
       this.gotit === 'yup' && this.connectedCallback();
       this.gotit = '';
       this.response.value = '';
-      e.target.classList.remove('animate');
     }, 2000);
+    this.response.focus();
   };
 
   render() {
