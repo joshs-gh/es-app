@@ -6,11 +6,21 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface GrowingFlower {
+        "left": string;
+        "top": string;
+    }
     interface MathProblem {
         "range": number;
     }
 }
 declare global {
+    interface HTMLGrowingFlowerElement extends Components.GrowingFlower, HTMLStencilElement {
+    }
+    var HTMLGrowingFlowerElement: {
+        prototype: HTMLGrowingFlowerElement;
+        new (): HTMLGrowingFlowerElement;
+    };
     interface HTMLMathProblemElement extends Components.MathProblem, HTMLStencilElement {
     }
     var HTMLMathProblemElement: {
@@ -18,14 +28,20 @@ declare global {
         new (): HTMLMathProblemElement;
     };
     interface HTMLElementTagNameMap {
+        "growing-flower": HTMLGrowingFlowerElement;
         "math-problem": HTMLMathProblemElement;
     }
 }
 declare namespace LocalJSX {
+    interface GrowingFlower {
+        "left"?: string;
+        "top"?: string;
+    }
     interface MathProblem {
         "range"?: number;
     }
     interface IntrinsicElements {
+        "growing-flower": GrowingFlower;
         "math-problem": MathProblem;
     }
 }
@@ -33,6 +49,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "growing-flower": LocalJSX.GrowingFlower & JSXBase.HTMLAttributes<HTMLGrowingFlowerElement>;
             "math-problem": LocalJSX.MathProblem & JSXBase.HTMLAttributes<HTMLMathProblemElement>;
         }
     }

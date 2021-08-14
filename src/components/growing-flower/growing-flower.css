@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+img {
+  height: 100px;
+  transition: all 3s;
+}
+.grow1 {
+  transform: scaleY(1.8) scaleX(1.8) translateY(-15px);
+}
+.grow2 {
+  transform: scaleY(2.8) scaleX(2.8) translateY(-22px);
+}

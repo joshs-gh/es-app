@@ -32,7 +32,6 @@ export class MathProblem {
   };
 
   private handleClick = e => {
-    console.log(e);
     e.target.classList.remove('animate');
     void e.target.offsetWidth;
     e.target.classList.add('animate');
