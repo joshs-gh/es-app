@@ -22,6 +22,12 @@ export class MathProblem {
     this.x = Math.floor(Math.random() * (this.numRange + 1));
     this.y = Math.floor(Math.random() * (this.numRange + 1));
     Math.random() < 0.5 ? (this.operator = '+') : (this.operator = '-');
+    // no negatives
+    if (this.operator === '-' && this.y > this.x) {
+      let t = this.x;
+      this.x = this.y;
+      this.y = t;
+    }
     this.operator === '+' ? (this.answer = this.x + this.y) : (this.answer = this.x - this.y);
     console.log('Answer: ' + this.answer);
   }
