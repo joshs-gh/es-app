@@ -34,14 +34,13 @@ export class MathProblem {
   };
 
   private handleClick = e => {
-    e.target.classList.remove('animate');
-    void e.target.offsetWidth;
-    e.target.classList.add('animate');
-    setTimeout(function () {
-      e.target.classList.remove('animate');
-    }, 700);
-
     if (parseInt(this.response.value) === this.answer) {
+      e.target.classList.remove('animate');
+      void e.target.offsetWidth;
+      e.target.classList.add('animate');
+      setTimeout(function () {
+        e.target.classList.remove('animate');
+      }, 700);
       this.gotit = 'yup';
       this.gotItRight.emit('Yup!');
     } else {
