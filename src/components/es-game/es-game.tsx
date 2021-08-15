@@ -59,7 +59,7 @@ export class EsGame {
 
   render() {
     return (
-      <div>
+      <div class="bg">
         <img class="bg" src={getAssetPath(`./assets/b.svg`)} />
         {this.oot && !this.won ? (
           <div class="lost">
@@ -71,11 +71,11 @@ export class EsGame {
             {!this.won && <count-down from-seconds="60"></count-down>}
           </div>
         )}
-        <growing-flower id="f1" top="750px" left="500px"></growing-flower>
-        <growing-flower id="f2" top="750px" left="800px"></growing-flower>
-        <growing-flower id="f3" top="750px" left="1100px"></growing-flower>
-        <watering-can id="wc1" wc-top="600px"></watering-can>
-        <watering-can id="wc2" wc-top="500px"></watering-can>
+        <growing-flower id="f1" top="75vh" left="40%"></growing-flower>
+        <growing-flower id="f2" top="75%" left="60%"></growing-flower>
+        <growing-flower id="f3" top="75%" left="80%"></growing-flower>
+        <watering-can id="wc1" wc-top="60%"></watering-can>
+        <watering-can id="wc2" wc-top="50%"></watering-can>
       </div>
     );
   }

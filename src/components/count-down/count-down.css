@@ -3,9 +3,9 @@
 }
 .clock {
   position: absolute;
-  top: 90px;
-  left: 1050px;
-  font-size: xx-large;
+  top: 8%;
+  left: 77%;
+  font-size: 2vw;
 }
 .hurry {
   color: red;

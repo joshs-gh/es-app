@@ -3,21 +3,21 @@
 }
 .can {
   position: absolute;
-  left: -100px;
+  left: -200px;
 }
 img {
-  height: 100px;
+  height: 10vh;
 }
 .f1 {
-  --f-left: 450px;
+  --f-left: 38%;
   animation: water 3s forwards;
 }
 .f2 {
-  --f-left: 750px;
+  --f-left: 57%;
   animation: water 3s forwards;
 }
 .f3 {
-  --f-left: 1050px;
+  --f-left: 77%;
   animation: water 3s forwards;
 }
 @keyframes water {

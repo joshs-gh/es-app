@@ -32,6 +32,10 @@ export class MathProblem {
     console.log('Answer: ' + this.answer);
   }
 
+  componentDidRender() {
+    this.response.focus();
+  }
+
   private getText(): string {
     return String(this.x) + ' ' + this.operator + ' ' + String(this.y) + ' =  ';
   }
@@ -67,15 +71,15 @@ export class MathProblem {
         {this.won ? (
           <div class="won">You won!</div>
         ) : (
-          <div>
-            <div>
+          <div class="block">
+            <div class="flex">
               {this.getText()}
               <input ref={e => (this.response = e as HTMLInputElement)} onKeyDown={this.handleKeydown}></input>
               <button class="bubbly-button" onClick={this.handleClick}>
                 Go
               </button>
             </div>
-            <div>
+            <div class="flex">
               {this.gotit === 'yup' && <div style={{ color: 'green' }}>You got it!</div>}
               {this.gotit === 'nope' && <div style={{ color: 'red' }}>Sorry try again!</div>}
             </div>

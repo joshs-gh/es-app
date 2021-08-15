@@ -7,12 +7,12 @@ div.flower {
   align-items: center;
 }
 img {
-  height: 100px;
+  height: 10vh;
   transition: all 3s;
 }
 .grow1 {
-  transform: scaleY(1.8) scaleX(1.8) translateY(-15px);
+  transform: scaleY(1.8) scaleX(1.8) translateY(-2vh);
 }
 .grow2 {
-  transform: scaleY(2.8) scaleX(2.8) translateY(-22px);
+  transform: scaleY(2.8) scaleX(2.8) translateY(-4vh);
 }
