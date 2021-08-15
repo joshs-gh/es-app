@@ -6,6 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CountDown {
+        "fromSeconds": number;
+    }
     interface EsGame {
     }
     interface GrowingFlower {
@@ -23,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLCountDownElement extends Components.CountDown, HTMLStencilElement {
+    }
+    var HTMLCountDownElement: {
+        prototype: HTMLCountDownElement;
+        new (): HTMLCountDownElement;
+    };
     interface HTMLEsGameElement extends Components.EsGame, HTMLStencilElement {
     }
     var HTMLEsGameElement: {
@@ -48,6 +57,7 @@ declare global {
         new (): HTMLWateringCanElement;
     };
     interface HTMLElementTagNameMap {
+        "count-down": HTMLCountDownElement;
         "es-game": HTMLEsGameElement;
         "growing-flower": HTMLGrowingFlowerElement;
         "math-problem": HTMLMathProblemElement;
@@ -55,6 +65,10 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface CountDown {
+        "fromSeconds"?: number;
+        "onOutOfTime"?: (event: CustomEvent<string>) => void;
+    }
     interface EsGame {
     }
     interface GrowingFlower {
@@ -71,6 +85,7 @@ declare namespace LocalJSX {
         "wcTop"?: string;
     }
     interface IntrinsicElements {
+        "count-down": CountDown;
         "es-game": EsGame;
         "growing-flower": GrowingFlower;
         "math-problem": MathProblem;
@@ -81,6 +96,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "count-down": LocalJSX.CountDown & JSXBase.HTMLAttributes<HTMLCountDownElement>;
             "es-game": LocalJSX.EsGame & JSXBase.HTMLAttributes<HTMLEsGameElement>;
             "growing-flower": LocalJSX.GrowingFlower & JSXBase.HTMLAttributes<HTMLGrowingFlowerElement>;
             "math-problem": LocalJSX.MathProblem & JSXBase.HTMLAttributes<HTMLMathProblemElement>;

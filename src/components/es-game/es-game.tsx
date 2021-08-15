@@ -1,4 +1,5 @@
 import { Component, h, Listen, State, getAssetPath } from '@stencil/core';
+import { MathProblem } from '../math-problem/math-problem';
 
 @Component({
   tag: 'es-game',
@@ -8,6 +9,13 @@ import { Component, h, Listen, State, getAssetPath } from '@stencil/core';
 })
 export class EsGame {
   @State() counter: number = 0;
+  @State() oot: boolean = false;
+  @State() won: boolean = false;
+
+  @Listen('outOfTime')
+  ootHandler() {
+    this.oot = true;
+  }
 
   @Listen('gotItRight')
   girHandler(event: CustomEvent<String>) {
@@ -44,6 +52,7 @@ export class EsGame {
         fl3.grow = 'two';
         wc2.water('f3');
         mp.won = true;
+        this.won = true;
         break;
       default:
         console.log(`ERROR ${event.detail}`);
@@ -54,7 +63,16 @@ export class EsGame {
     return (
       <div>
         <img class="bg" src={getAssetPath(`./assets/b.svg`)} />
-        <math-problem num-range="10"></math-problem>
+        {this.oot && !this.won ? (
+          <div class="lost">
+            <img class="sowwy" src={getAssetPath('./assets/s1.webp')} />
+          </div>
+        ) : (
+          <div>
+            <math-problem num-range="10"></math-problem>
+            {!this.won && <count-down from-seconds="60"></count-down>}
+          </div>
+        )}
         <growing-flower id="f1" top="750px" left="500px"></growing-flower>
         <growing-flower id="f2" top="750px" left="800px"></growing-flower>
         <growing-flower id="f3" top="750px" left="1100px"></growing-flower>

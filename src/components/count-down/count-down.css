@@ -1,0 +1,9 @@
+:host {
+  display: block;
+}
+.clock {
+  position: absolute;
+  top: 90px;
+  left: 1050px;
+  font-size: xx-large;
+}
