@@ -1,6 +1,4 @@
 import { Component, h, Listen, State, getAssetPath } from '@stencil/core';
-import { MathProblem } from '../math-problem/math-problem';
-
 @Component({
   tag: 'es-game',
   styleUrl: 'es-game.css',
