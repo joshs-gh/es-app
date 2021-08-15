@@ -7,3 +7,12 @@
   left: 1050px;
   font-size: xx-large;
 }
+.hurry {
+  color: red;
+  animation: blinker 0.9s linear infinite;
+}
+@keyframes blinker {
+  90% {
+    opacity: 0;
+  }
+}

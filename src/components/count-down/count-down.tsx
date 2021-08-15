@@ -26,6 +26,6 @@ export class CountDown {
   }
 
   render() {
-    return <div class="clock">{this.timeLeft} seconds</div>;
+    return <div class={this.timeLeft > 5 ? 'clock' : 'clock hurry'}>{this.timeLeft} seconds</div>;
   }
 }
