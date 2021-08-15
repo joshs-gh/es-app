@@ -1,8 +1,9 @@
-import { Component, Prop, h, Watch } from '@stencil/core';
+import { Component, Prop, h, Watch, getAssetPath } from '@stencil/core';
 
 @Component({
   tag: 'growing-flower',
   styleUrl: 'growing-flower.css',
+  assetsDirs: ['assets'],
   shadow: false,
 })
 export class GrowingFlower {
@@ -26,7 +27,7 @@ export class GrowingFlower {
   render() {
     return (
       <div class="flower" ref={e => (this.div = e as HTMLElement)}>
-        <img src="https://www.pinclipart.com/picdir/big/93-934721_smiley-happy-daisy-flower-clipart.png" ref={e => (this.flower = e as HTMLElement)}></img>
+        <img src={getAssetPath(`./assets/f.png`)} ref={e => (this.flower = e as HTMLElement)}></img>
       </div>
     );
   }

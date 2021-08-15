@@ -1,8 +1,9 @@
-import { Component, h, Listen, State } from '@stencil/core';
+import { Component, h, Listen, State, getAssetPath } from '@stencil/core';
 
 @Component({
   tag: 'es-game',
   styleUrl: 'es-game.css',
+  assetsDirs: ['assets'],
   shadow: false,
 })
 export class EsGame {
@@ -52,7 +53,7 @@ export class EsGame {
   render() {
     return (
       <div>
-        <img class="bg" src="http://www.clker.com/cliparts/0/f/b/8/1197091304272882353carlitos_Cartoon_Landscape.svg" />
+        <img class="bg" src={getAssetPath(`./assets/b.svg`)} />
         <math-problem num-range="10"></math-problem>
         <growing-flower id="f1" top="750px" left="500px"></growing-flower>
         <growing-flower id="f2" top="750px" left="800px"></growing-flower>

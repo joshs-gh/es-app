@@ -1,8 +1,9 @@
-import { Component, h, Method, Prop } from '@stencil/core';
+import { Component, h, Method, Prop, getAssetPath } from '@stencil/core';
 
 @Component({
   tag: 'watering-can',
   styleUrl: 'watering-can.css',
+  assetsDirs: ['assets'],
   shadow: true,
 })
 export class WateringCan {
@@ -22,7 +23,7 @@ export class WateringCan {
   render() {
     return (
       <div class="can" ref={e => (this.div = e as HTMLElement)}>
-        <img src="https://media3.giphy.com/media/jsekdGweixuDpH3Q6d/giphy.gif?cid=4d1e4f290abd3f3558fd4b63ffe3da46dbbb849b7f1fb122&rid=giphy.gif" />
+        <img src={getAssetPath(`./assets/wc.webp`)} />
       </div>
     );
   }
