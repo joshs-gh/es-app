@@ -74,7 +74,7 @@ export class MathProblem {
           <div class="block">
             <div class="flex">
               {this.getText()}
-              <input ref={e => (this.response = e as HTMLInputElement)} onKeyDown={this.handleKeydown}></input>
+              <input type="number" ref={e => (this.response = e as HTMLInputElement)} onKeyDown={this.handleKeydown}></input>
               <button class="bubbly-button" onClick={this.handleClick}>
                 Go
               </button>
